@@ -1,0 +1,21 @@
+@RacePlanner.Api_HostAddress = http://localhost:5137
+
+GET {{RacePlanner.Api_HostAddress}}/api/races
+Accept: application/json
+
+###
+
+GET {{RacePlanner.Api_HostAddress}}/api/races/algarve-xtreme-trail-2026
+Accept: application/json
+
+###
+
+GET {{RacePlanner.Api_HostAddress}}/api/circuits
+Accept: application/json
+
+###
+
+GET {{RacePlanner.Api_HostAddress}}/api/race-circuits
+Accept: application/json
+
+###
