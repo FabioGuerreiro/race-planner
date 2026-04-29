@@ -1,3 +1,19 @@
 race-planner/AGENTS.md
 race-planner/ng-serve.err.log
 race-planner/ng-serve.out.log
+
+# .NET
+**/bin/
+**/obj/
+**/.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Local app settings / secrets
+**/appsettings.Local.json
+**/appsettings.*.local.json
+
+# Logs
+*.log
