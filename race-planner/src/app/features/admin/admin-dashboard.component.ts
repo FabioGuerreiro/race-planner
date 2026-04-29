@@ -8,6 +8,8 @@ import { RaceCircuit } from '../../core/models/race-circuit.model';
 import { Race, RaceStatus } from '../../core/models/race.model';
 import { RaceService } from '../../core/services/race.service';
 
+type AdminDialog = 'race' | 'circuit' | 'association' | '';
+
 /** Admin-only workspace for managing mock race and circuit data before backend persistence exists. */
 @Component({
   selector: 'app-admin-dashboard',
@@ -30,6 +32,7 @@ export class AdminDashboardComponent {
   /** In-memory join records preserving the many-to-many race/circuit relationship. */
   protected readonly raceCircuits = signal<RaceCircuit[]>([]);
   protected readonly selectedRaceId = signal('');
+  protected readonly adminDialog = signal<AdminDialog>('');
 
   protected readonly raceForm = new FormGroup({
     id: new FormControl('', { nonNullable: true }),
@@ -102,6 +105,7 @@ export class AdminDashboardComponent {
         : [...races, race],
     );
     this.resetRaceForm();
+    this.closeDialog();
   }
 
   /** Loads a race into the form for editing without changing existing associations. */
@@ -119,6 +123,7 @@ export class AdminDashboardComponent {
       officialUrl: race.officialUrl ?? '',
       registrationUrl: race.registrationUrl ?? '',
     });
+    this.openDialog('race');
   }
 
   /** Removes a race and any circuit associations that point to it. */
@@ -175,6 +180,7 @@ export class AdminDashboardComponent {
       season: '2026',
       website: '',
     });
+    this.closeDialog();
   }
 
   /** Adds a race-circuit join record unless that association already exists. */
@@ -202,6 +208,17 @@ export class AdminDashboardComponent {
 
       return alreadyAssociated ? raceCircuits : [...raceCircuits, association];
     });
+    this.closeDialog();
+  }
+
+  /** Opens a modal form while keeping admin lists visible behind it. */
+  protected openDialog(dialog: AdminDialog): void {
+    this.adminDialog.set(dialog);
+  }
+
+  /** Closes the active admin modal form. */
+  protected closeDialog(): void {
+    this.adminDialog.set('');
   }
 
   protected raceName(raceId: string): string {

@@ -59,7 +59,13 @@ describe('AdminDashboardComponent', () => {
 
   it('creates a race', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    const form = compiled.querySelector('form') as HTMLFormElement;
+    const newRaceButton = Array.from(compiled.querySelectorAll('button')).find(
+      (button) => button.textContent === 'New race',
+    );
+    newRaceButton?.click();
+    fixture.detectChanges();
+
+    const form = compiled.querySelector('[role="dialog"] form') as HTMLFormElement;
     const inputs = form.querySelectorAll('input');
     const status = form.querySelector('select') as HTMLSelectElement;
 
@@ -83,6 +89,7 @@ describe('AdminDashboardComponent', () => {
 
     expect(compiled.textContent).toContain('New Race');
     expect(compiled.textContent).toContain('2 races');
+    expect(compiled.querySelector('[role="dialog"]')).toBeNull();
   });
 
   it('edits and deletes a race', () => {
@@ -92,7 +99,7 @@ describe('AdminDashboardComponent', () => {
     editButton?.click();
     fixture.detectChanges();
 
-    const form = compiled.querySelector('form') as HTMLFormElement;
+    const form = compiled.querySelector('[role="dialog"] form') as HTMLFormElement;
     const nameInput = form.querySelector('input') as HTMLInputElement;
     nameInput.value = 'Updated Race';
     nameInput.dispatchEvent(new Event('input'));
@@ -113,8 +120,13 @@ describe('AdminDashboardComponent', () => {
 
   it('creates a circuit and associates a race to a circuit', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    const forms = compiled.querySelectorAll('form');
-    const circuitForm = forms[1];
+    const createCircuitButton = Array.from(compiled.querySelectorAll('button')).find(
+      (button) => button.textContent === 'Create circuit',
+    );
+    createCircuitButton?.click();
+    fixture.detectChanges();
+
+    const circuitForm = compiled.querySelector('[role="dialog"] form') as HTMLFormElement;
     const circuitInputs = circuitForm.querySelectorAll('input');
     const circuitType = circuitForm.querySelector('select') as HTMLSelectElement;
 
@@ -129,7 +141,13 @@ describe('AdminDashboardComponent', () => {
 
     expect(compiled.textContent).toContain('2 circuits');
 
-    const associationForm = forms[2];
+    const associateRaceButton = Array.from(compiled.querySelectorAll('button')).find(
+      (button) => button.textContent === 'Associate race',
+    );
+    associateRaceButton?.click();
+    fixture.detectChanges();
+
+    const associationForm = compiled.querySelector('[role="dialog"] form') as HTMLFormElement;
     const associationSelects = associationForm.querySelectorAll('select');
     const associationInputs = associationForm.querySelectorAll('input');
     associationSelects[0].value = 'existing-race';

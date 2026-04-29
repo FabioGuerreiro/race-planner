@@ -10,64 +10,8 @@
   <section class="admin-section" aria-labelledby="race-management-title">
     <div class="section-heading">
       <h2 id="race-management-title">Race Management</h2>
-      <button type="button" (click)="resetRaceForm()">New race</button>
+      <button type="button" (click)="resetRaceForm(); openDialog('race')">New race</button>
     </div>
-
-    <form class="admin-form" [formGroup]="raceForm" (ngSubmit)="saveRace()">
-      <label>
-        <span>Name</span>
-        <input type="text" formControlName="name" />
-      </label>
-
-      <label>
-        <span>Date</span>
-        <input type="date" formControlName="date" />
-      </label>
-
-      <label>
-        <span>Location</span>
-        <input type="text" formControlName="location" />
-      </label>
-
-      <label>
-        <span>Municipality</span>
-        <input type="text" formControlName="municipality" />
-      </label>
-
-      <label>
-        <span>District</span>
-        <input type="text" formControlName="district" />
-      </label>
-
-      <label>
-        <span>Organizer</span>
-        <input type="text" formControlName="organizer" />
-      </label>
-
-      <label>
-        <span>Status</span>
-        <select formControlName="status">
-          <option value="announced">Announced</option>
-          <option value="confirmed">Confirmed</option>
-          <option value="cancelled">Cancelled</option>
-          <option value="completed">Completed</option>
-        </select>
-      </label>
-
-      <label>
-        <span>Official URL</span>
-        <input type="url" formControlName="officialUrl" />
-      </label>
-
-      <label>
-        <span>Registration URL</span>
-        <input type="url" formControlName="registrationUrl" />
-      </label>
-
-      <div class="form-actions">
-        <button type="submit">{{ selectedRaceId() ? 'Save race' : 'Create race' }}</button>
-      </div>
-    </form>
 
     <div class="admin-table" role="table" aria-label="All races">
       <div class="table-header" role="row">
@@ -98,73 +42,22 @@
   <section class="admin-section" aria-labelledby="circuit-management-title">
     <div class="section-heading">
       <h2 id="circuit-management-title">Circuit Management</h2>
+      <div class="heading-actions">
+        <button type="button" (click)="openDialog('circuit')">Create circuit</button>
+        <button type="button" (click)="openDialog('association')">Associate race</button>
+      </div>
     </div>
 
-    <form class="admin-form compact" [formGroup]="circuitForm" (ngSubmit)="saveCircuit()">
-      <label>
-        <span>Name</span>
-        <input type="text" formControlName="name" />
-      </label>
-
-      <label>
-        <span>Type</span>
-        <select formControlName="type">
-          <option value="regional">Regional</option>
-          <option value="national">National</option>
-          <option value="private">Private</option>
-        </select>
-      </label>
-
-      <label>
-        <span>Season</span>
-        <input type="text" formControlName="season" />
-      </label>
-
-      <label>
-        <span>Website</span>
-        <input type="url" formControlName="website" />
-      </label>
-
-      <div class="form-actions">
-        <button type="submit">Create circuit</button>
-      </div>
-    </form>
-
-    <form class="admin-form compact" [formGroup]="associationForm" (ngSubmit)="associateRaceToCircuit()">
-      <label>
-        <span>Race</span>
-        <select formControlName="raceId">
-          <option value="">Select race</option>
-          @for (race of races(); track race.id) {
-            <option [value]="race.id">{{ race.name }}</option>
-          }
-        </select>
-      </label>
-
-      <label>
-        <span>Circuit</span>
-        <select formControlName="circuitId">
-          <option value="">Select circuit</option>
-          @for (circuit of circuits(); track circuit.id) {
-            <option [value]="circuit.id">{{ circuit.name }}</option>
-          }
-        </select>
-      </label>
-
-      <label>
-        <span>Season</span>
-        <input type="text" formControlName="season" />
-      </label>
-
-      <label>
-        <span>Category</span>
-        <input type="text" formControlName="category" />
-      </label>
-
-      <div class="form-actions">
-        <button type="submit">Associate race</button>
-      </div>
-    </form>
+    <div class="circuit-list" aria-label="All circuits">
+      @for (circuit of circuits(); track circuit.id) {
+        <p>
+          <strong>{{ circuit.name }}</strong>
+          <span>{{ circuit.type }} · {{ circuit.season }}</span>
+        </p>
+      } @empty {
+        <p class="empty-state">No circuits created yet.</p>
+      }
+    </div>
 
     <div class="association-list" aria-label="Race circuit associations">
       @for (raceCircuit of raceCircuits(); track raceCircuit.raceId + raceCircuit.circuitId + raceCircuit.season) {
@@ -177,4 +70,180 @@
       }
     </div>
   </section>
+
+  @if (adminDialog() === 'race') {
+    <div class="modal-backdrop" role="presentation" (click)="closeDialog()">
+      <section
+        class="admin-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="race-dialog-title"
+        (click)="$event.stopPropagation()"
+      >
+        <header>
+          <h2 id="race-dialog-title">{{ selectedRaceId() ? 'Edit race' : 'Create race' }}</h2>
+          <button type="button" aria-label="Close race dialog" (click)="closeDialog()">x</button>
+        </header>
+
+        <form class="admin-form" [formGroup]="raceForm" (ngSubmit)="saveRace()">
+          <label>
+            <span>Name</span>
+            <input type="text" formControlName="name" />
+          </label>
+
+          <label>
+            <span>Date</span>
+            <input type="date" formControlName="date" />
+          </label>
+
+          <label>
+            <span>Location</span>
+            <input type="text" formControlName="location" />
+          </label>
+
+          <label>
+            <span>Municipality</span>
+            <input type="text" formControlName="municipality" />
+          </label>
+
+          <label>
+            <span>District</span>
+            <input type="text" formControlName="district" />
+          </label>
+
+          <label>
+            <span>Organizer</span>
+            <input type="text" formControlName="organizer" />
+          </label>
+
+          <label>
+            <span>Status</span>
+            <select formControlName="status">
+              <option value="announced">Announced</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="cancelled">Cancelled</option>
+              <option value="completed">Completed</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Official URL</span>
+            <input type="url" formControlName="officialUrl" />
+          </label>
+
+          <label>
+            <span>Registration URL</span>
+            <input type="url" formControlName="registrationUrl" />
+          </label>
+
+          <div class="form-actions">
+            <button type="button" (click)="closeDialog()">Cancel</button>
+            <button type="submit">{{ selectedRaceId() ? 'Save race' : 'Create race' }}</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  }
+
+  @if (adminDialog() === 'circuit') {
+    <div class="modal-backdrop" role="presentation" (click)="closeDialog()">
+      <section
+        class="admin-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="circuit-dialog-title"
+        (click)="$event.stopPropagation()"
+      >
+        <header>
+          <h2 id="circuit-dialog-title">Create circuit</h2>
+          <button type="button" aria-label="Close circuit dialog" (click)="closeDialog()">x</button>
+        </header>
+
+        <form class="admin-form compact" [formGroup]="circuitForm" (ngSubmit)="saveCircuit()">
+          <label>
+            <span>Name</span>
+            <input type="text" formControlName="name" />
+          </label>
+
+          <label>
+            <span>Type</span>
+            <select formControlName="type">
+              <option value="regional">Regional</option>
+              <option value="national">National</option>
+              <option value="private">Private</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Season</span>
+            <input type="text" formControlName="season" />
+          </label>
+
+          <label>
+            <span>Website</span>
+            <input type="url" formControlName="website" />
+          </label>
+
+          <div class="form-actions">
+            <button type="button" (click)="closeDialog()">Cancel</button>
+            <button type="submit">Create circuit</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  }
+
+  @if (adminDialog() === 'association') {
+    <div class="modal-backdrop" role="presentation" (click)="closeDialog()">
+      <section
+        class="admin-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="association-dialog-title"
+        (click)="$event.stopPropagation()"
+      >
+        <header>
+          <h2 id="association-dialog-title">Associate race to circuit</h2>
+          <button type="button" aria-label="Close association dialog" (click)="closeDialog()">x</button>
+        </header>
+
+        <form class="admin-form compact" [formGroup]="associationForm" (ngSubmit)="associateRaceToCircuit()">
+          <label>
+            <span>Race</span>
+            <select formControlName="raceId">
+              <option value="">Select race</option>
+              @for (race of races(); track race.id) {
+                <option [value]="race.id">{{ race.name }}</option>
+              }
+            </select>
+          </label>
+
+          <label>
+            <span>Circuit</span>
+            <select formControlName="circuitId">
+              <option value="">Select circuit</option>
+              @for (circuit of circuits(); track circuit.id) {
+                <option [value]="circuit.id">{{ circuit.name }}</option>
+              }
+            </select>
+          </label>
+
+          <label>
+            <span>Season</span>
+            <input type="text" formControlName="season" />
+          </label>
+
+          <label>
+            <span>Category</span>
+            <input type="text" formControlName="category" />
+          </label>
+
+          <div class="form-actions">
+            <button type="button" (click)="closeDialog()">Cancel</button>
+            <button type="submit">Associate race</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  }
 </main>
