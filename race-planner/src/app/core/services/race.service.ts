@@ -89,6 +89,16 @@ export class RaceService {
     );
   }
 
+  /** Loads available circuits from mock data for filtering and admin assignment. */
+  getCircuits(): Observable<Circuit[]> {
+    return this.http.get<Circuit[]>(this.circuitsUrl);
+  }
+
+  /** Loads race-to-circuit join records used by the admin association workflow. */
+  getRaceCircuits(): Observable<RaceCircuit[]> {
+    return this.http.get<RaceCircuit[]>(this.raceCircuitsUrl);
+  }
+
   private toRaceDistance(distance: RaceDistanceDto): RaceDistance {
     return {
       ...distance,

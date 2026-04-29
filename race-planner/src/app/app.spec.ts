@@ -22,4 +22,13 @@ describe('App', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.brand')?.textContent).toContain('Race Planner');
   });
+
+  it('should render primary navigation links', async () => {
+    const fixture = TestBed.createComponent(App);
+    await fixture.whenStable();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const links = Array.from(compiled.querySelectorAll('.app-nav a')).map((link) => link.textContent);
+
+    expect(links).toEqual(['Races', 'Admin']);
+  });
 });

@@ -157,4 +157,50 @@ describe('RaceService', () => {
     httpTesting.expectOne('/circuits-dummy.json').flush([]);
     httpTesting.expectOne('/race-circuits-dummy.json').flush([]);
   });
+
+  it('loads circuits from the public dummy data', () => {
+    service.getCircuits().subscribe((circuits) => {
+      expect(circuits).toEqual([
+        {
+          id: 'regional-cup',
+          name: 'Regional Cup',
+          type: 'regional',
+          season: '2026',
+        },
+      ]);
+    });
+
+    const request = httpTesting.expectOne('/circuits-dummy.json');
+    expect(request.request.method).toBe('GET');
+    request.flush([
+      {
+        id: 'regional-cup',
+        name: 'Regional Cup',
+        type: 'regional',
+        season: '2026',
+      },
+    ]);
+  });
+
+  it('loads race-circuit associations from the public dummy data', () => {
+    service.getRaceCircuits().subscribe((raceCircuits) => {
+      expect(raceCircuits).toEqual([
+        {
+          raceId: 'early-race',
+          circuitId: 'regional-cup',
+          season: '2026',
+        },
+      ]);
+    });
+
+    const request = httpTesting.expectOne('/race-circuits-dummy.json');
+    expect(request.request.method).toBe('GET');
+    request.flush([
+      {
+        raceId: 'early-race',
+        circuitId: 'regional-cup',
+        season: '2026',
+      },
+    ]);
+  });
 });
