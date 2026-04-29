@@ -2,7 +2,9 @@ import { DatePipe } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
+import { RacePriority } from '../../core/models/my-calendar-item.model';
 import { RaceDistanceCategory } from '../../core/models/race-distance.model';
+import { MyCalendarService } from '../../core/services/my-calendar.service';
 import { RaceService } from '../../core/services/race.service';
 
 @Component({
@@ -13,12 +15,17 @@ import { RaceService } from '../../core/services/race.service';
 })
 export class RaceListComponent {
   private readonly raceService = inject(RaceService);
+  private readonly myCalendarService = inject(MyCalendarService);
 
   protected readonly races = toSignal(this.raceService.getRaces(), { initialValue: [] });
   protected readonly selectedDate = signal('');
   protected readonly selectedCircuit = signal('');
   protected readonly selectedLocation = signal('');
   protected readonly selectedCategory = signal<RaceDistanceCategory | ''>('');
+  protected readonly selectedDistanceIds = signal<Record<string, string>>({});
+  protected readonly selectedPriorities = signal<Record<string, RacePriority>>({});
+  protected readonly notesByRaceId = signal<Record<string, string>>({});
+  protected readonly calendarDialogRaceId = signal('');
 
   /**
    * Unique month options derived from race dates, formatted for select controls.
@@ -65,6 +72,10 @@ export class RaceListComponent {
     ),
   );
 
+  protected readonly calendarDialogRace = computed(() =>
+    this.races().find((race) => race.id === this.calendarDialogRaceId()),
+  );
+
   /**
    * Race count of race list component
    */
@@ -89,6 +100,66 @@ export class RaceListComponent {
     this.selectedCircuit.set('');
     this.selectedLocation.set('');
     this.selectedCategory.set('');
+  }
+
+  protected distanceSelectionFor(raceId: string): string {
+    return this.selectedDistanceIds()[raceId] || '';
+  }
+
+  protected prioritySelectionFor(raceId: string): RacePriority {
+    return this.selectedPriorities()[raceId] ?? 'C';
+  }
+
+  protected notesFor(raceId: string): string {
+    return this.notesByRaceId()[raceId] || '';
+  }
+
+  protected selectDistance(raceId: string, distanceId: string): void {
+    this.selectedDistanceIds.update((values) => ({ ...values, [raceId]: distanceId }));
+  }
+
+  protected selectPriority(raceId: string, priority: RacePriority): void {
+    this.selectedPriorities.update((values) => ({ ...values, [raceId]: priority }));
+  }
+
+  protected setCalendarNotes(raceId: string, notes: string): void {
+    this.notesByRaceId.update((values) => ({ ...values, [raceId]: notes }));
+  }
+
+  protected openCalendarDialog(raceId: string): void {
+    this.calendarDialogRaceId.set(raceId);
+  }
+
+  protected closeCalendarDialog(): void {
+    this.calendarDialogRaceId.set('');
+  }
+
+  protected addDialogSelectionToCalendar(): void {
+    const raceId = this.calendarDialogRaceId();
+
+    if (!raceId) {
+      return;
+    }
+
+    this.addToCalendar(raceId);
+    this.closeCalendarDialog();
+  }
+
+  /** Adds the selected race distance to the shared in-memory calendar store. */
+  protected addToCalendar(raceId: string): void {
+    const distanceId = this.selectedDistanceIds()[raceId];
+
+    if (!distanceId) {
+      return;
+    }
+
+    this.myCalendarService.addItem({
+      raceId,
+      distanceId,
+      priority: this.selectedPriorities()[raceId] ?? 'C',
+      intention: 'maybe',
+      notes: this.notesByRaceId()[raceId]?.trim() || undefined,
+    });
   }
 
   /**

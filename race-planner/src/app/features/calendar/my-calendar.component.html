@@ -1,0 +1,51 @@
+<main class="calendar-page">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Planning</p>
+      <h1>My Calendar</h1>
+    </div>
+    <div class="view-toggle" aria-label="Calendar view">
+      <button type="button" [class.active]="viewMode() === 'list'" (click)="viewMode.set('list')">List</button>
+      <button type="button" [class.active]="viewMode() === 'monthly'" (click)="viewMode.set('monthly')">Monthly</button>
+    </div>
+  </header>
+
+  @if (viewMode() === 'list') {
+    <section class="planned-list" aria-label="Planned races">
+      @for (entry of plannedItems(); track entry.item.id) {
+        <article class="planned-row">
+          <time [attr.datetime]="entry.race.date.toISOString()">{{ entry.race.date | date: 'mediumDate' }}</time>
+          <div>
+            <h2>{{ entry.race.name }}</h2>
+            <p>
+              {{ entry.distance.distanceKm }} km · {{ entry.distance.name }} · Priority {{ entry.item.priority }}
+            </p>
+            @if (entry.item.notes) {
+              <p class="notes">{{ entry.item.notes }}</p>
+            }
+          </div>
+          <button type="button" (click)="removeItem(entry.item.id)">Remove</button>
+        </article>
+      } @empty {
+        <p class="empty-state">No races in your calendar yet.</p>
+      }
+    </section>
+  } @else {
+    <section class="month-list" aria-label="Monthly planned races">
+      @for (month of monthlyGroups(); track month.label) {
+        <article class="month-group">
+          <h2>{{ month.label }}</h2>
+          @for (entry of month.entries; track entry.item.id) {
+            <p>
+              <span>{{ entry.race.date | date: 'd MMM' }}</span>
+              <strong>{{ entry.race.name }}</strong>
+              <span>{{ entry.distance.distanceKm }} km · Priority {{ entry.item.priority }}</span>
+            </p>
+          }
+        </article>
+      } @empty {
+        <p class="empty-state">No races in your calendar yet.</p>
+      }
+    </section>
+  }
+</main>

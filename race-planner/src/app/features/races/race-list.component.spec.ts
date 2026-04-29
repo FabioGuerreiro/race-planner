@@ -1,11 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 
+import { MyCalendarService } from '../../core/services/my-calendar.service';
 import { RaceService } from '../../core/services/race.service';
 import { RaceListComponent } from './race-list.component';
 
 describe('RaceListComponent', () => {
   let fixture: ComponentFixture<RaceListComponent>;
+  let myCalendarService: MyCalendarService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -80,6 +82,7 @@ describe('RaceListComponent', () => {
       ],
     }).compileComponents();
 
+    myCalendarService = TestBed.inject(MyCalendarService);
     fixture = TestBed.createComponent(RaceListComponent);
     fixture.detectChanges();
   });
@@ -116,5 +119,39 @@ describe('RaceListComponent', () => {
     expect(compiled.textContent).toContain('Serra Trail');
     expect(compiled.textContent).not.toContain('Algarve Xtreme Trail');
     expect(compiled.textContent).toContain('1 races');
+  });
+
+  it('adds a selected race distance to My Calendar', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const calendarButton = compiled.querySelector('.calendar-button') as HTMLButtonElement;
+
+    calendarButton.click();
+    fixture.detectChanges();
+
+    const dialog = compiled.querySelector('[role="dialog"]') as HTMLElement;
+    const form = dialog.querySelector('form.calendar-form') as HTMLFormElement;
+    const selects = form.querySelectorAll('select');
+    const notes = form.querySelector('textarea') as HTMLTextAreaElement;
+
+    selects[0].value = 'algarve-xtreme-curto-2026';
+    selects[0].dispatchEvent(new Event('change'));
+    selects[1].value = 'A';
+    selects[1].dispatchEvent(new Event('change'));
+    notes.value = 'Tune-up race';
+    notes.dispatchEvent(new Event('input'));
+    form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+    fixture.detectChanges();
+
+    expect(myCalendarService.items()).toEqual([
+      {
+        id: 'algarve-xtreme-trail-2026-algarve-xtreme-curto-2026',
+        raceId: 'algarve-xtreme-trail-2026',
+        distanceId: 'algarve-xtreme-curto-2026',
+        priority: 'A',
+        intention: 'maybe',
+        notes: 'Tune-up race',
+      },
+    ]);
+    expect(compiled.querySelector('[role="dialog"]')).toBeNull();
   });
 });

@@ -82,7 +82,10 @@
               <li class="muted">Distances to confirm</li>
             }
           </ul>
+
         </div>
+
+        <button type="button" class="calendar-button" (click)="openCalendarDialog(race.id)">+ My Calendar</button>
 
         @if (race.officialUrl) {
           <a class="race-link" [href]="race.officialUrl" target="_blank" rel="noopener">Official</a>
@@ -92,4 +95,71 @@
       <p class="empty-state">No races found.</p>
     }
   </section>
+
+  @if (calendarDialogRace(); as race) {
+    <div class="modal-backdrop" role="presentation" (click)="closeCalendarDialog()">
+      <section
+        class="calendar-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="calendar-dialog-title"
+        (click)="$event.stopPropagation()"
+      >
+        <header>
+          <div>
+            <p class="eyebrow">Planning</p>
+            <h2 id="calendar-dialog-title">Add to My Calendar</h2>
+          </div>
+          <button type="button" aria-label="Close calendar dialog" (click)="closeCalendarDialog()">x</button>
+        </header>
+
+        <p class="dialog-race-name">{{ race.name }}</p>
+
+        <form class="calendar-form" (submit)="addDialogSelectionToCalendar(); $event.preventDefault()">
+          <label>
+            <span>Distance</span>
+            <select
+              aria-label="Calendar distance"
+              [value]="distanceSelectionFor(race.id)"
+              (change)="selectDistance(race.id, $any($event.target).value)"
+            >
+              <option value="">Select distance</option>
+              @for (distance of race.distances; track distance.id) {
+                <option [value]="distance.id">{{ distance.distanceKm }} km - {{ distance.name }}</option>
+              }
+            </select>
+          </label>
+
+          <label>
+            <span>Priority</span>
+            <select
+              aria-label="Calendar priority"
+              [value]="prioritySelectionFor(race.id)"
+              (change)="selectPriority(race.id, $any($event.target).value)"
+            >
+              <option value="A">Priority A</option>
+              <option value="B">Priority B</option>
+              <option value="C">Priority C</option>
+            </select>
+          </label>
+
+          <label class="notes-field">
+            <span>Notes</span>
+            <textarea
+              rows="3"
+              placeholder="Notes"
+              aria-label="Calendar notes"
+              [value]="notesFor(race.id)"
+              (input)="setCalendarNotes(race.id, $any($event.target).value)"
+            ></textarea>
+          </label>
+
+          <div class="dialog-actions">
+            <button type="button" (click)="closeCalendarDialog()">Cancel</button>
+            <button type="submit">Add</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  }
 </main>

@@ -1,0 +1,234 @@
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: NG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed. Find more at https://v21.angular.dev/extended-diagnostics/NG8102[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:89:23:
+[37m      89 │               [value]="[32mselectedDistanceIds()[race.id] ?? ''[37m"
+         ╵                        [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Warning occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: NG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed. Find more at https://v21.angular.dev/extended-diagnostics/NG8102[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:100:23:
+[37m      100 │               [value]="[32mselectedPriorities()[race.id] ?? 'C'[37m"
+          ╵                        [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Warning occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8102: NG8102: The left side of this nullish coalescing operation does not include 'null' or 'undefined' in its type, therefore the '??' operator can be safely removed. Find more at https://v21.angular.dev/extended-diagnostics/NG8102[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:112:23:
+[37m      112 │               [value]="[32mnotesByRaceId()[race.id] ?? ''[37m"
+          ╵                        [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Warning occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Missing expected ) at column 89 in [selectedDistanceIds.update(values => ({ ...values, [race.id]: $any($event.target).value }))] in D:\Projects\race-planner\race-planner\race-planner\src\app\features\races\race-list.component.html@89:24[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:90:24:
+[37m      90 │ ...(change)="[32mselectedDistanceIds.update(values => ({ ...values, [r[37m...
+         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Missing expected } at column 81 in [selectedDistanceIds.update(values => ({ ...values, [race.id]: $any($event.target).value }))] in D:\Projects\race-planner\race-planner\race-planner\src\app\features\races\race-list.component.html@89:24[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:90:24:
+[37m      90 │ ...(change)="[32mselectedDistanceIds.update(values => ({ ...values, [r[37m...
+         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Unexpected token ')' at column 90 in [selectedDistanceIds.update(values => ({ ...values, [race.id]: $any($event.target).value }))] in D:\Projects\race-planner\race-planner\race-planner\src\app\features\races\race-list.component.html@89:24[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:90:24:
+[37m      90 │ ...(change)="[32mselectedDistanceIds.update(values => ({ ...values, [r[37m...
+         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Unexpected token [, expected identifier, keyword, or string at column 52 in [selectedDistanceIds.update(values => ({ ...values, [race.id]: $any($event.target).value }))] in D:\Projects\race-planner\race-planner\race-planner\src\app\features\races\race-list.component.html@89:24[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:90:24:
+[37m      90 │ ...(change)="[32mselectedDistanceIds.update(values => ({ ...values, [r[37m...
+         ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'value' does not exist on type '{ "": any; }'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:90:106:
+[37m      90 │ ...(values => ({ ...values, [race.id]: $any($event.target).[32mvalue[37m }))"
+         ╵                                                            [32m~~~~~[0m
+
+  Error occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Missing expected ) at column 88 in [selectedPriorities.update(values => ({ ...values, [race.id]: $any($event.target).value }))] in D:\Projects\race-planner\race-planner\race-planner\src\app\features\races\race-list.component.html@100:24[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:101:24:
+[37m      101 │ ...(change)="[32mselectedPriorities.update(values => ({ ...values, [r[37m...
+          ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Missing expected } at column 80 in [selectedPriorities.update(values => ({ ...values, [race.id]: $any($event.target).value }))] in D:\Projects\race-planner\race-planner\race-planner\src\app\features\races\race-list.component.html@100:24[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:101:24:
+[37m      101 │ ...(change)="[32mselectedPriorities.update(values => ({ ...values, [r[37m...
+          ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Unexpected token ')' at column 89 in [selectedPriorities.update(values => ({ ...values, [race.id]: $any($event.target).value }))] in D:\Projects\race-planner\race-planner\race-planner\src\app\features\races\race-list.component.html@100:24[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:101:24:
+[37m      101 │ ...(change)="[32mselectedPriorities.update(values => ({ ...values, [r[37m...
+          ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Unexpected token [, expected identifier, keyword, or string at column 51 in [selectedPriorities.update(values => ({ ...values, [race.id]: $any($event.target).value }))] in D:\Projects\race-planner\race-planner\race-planner\src\app\features\races\race-list.component.html@100:24[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:101:24:
+[37m      101 │ ...(change)="[32mselectedPriorities.update(values => ({ ...values, [r[37m...
+          ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'value' does not exist on type '{ "": any; }'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:101:105:
+[37m      101 │ ...values => ({ ...values, [race.id]: $any($event.target).[32mvalue[37m }))"
+          ╵                                                           [32m~~~~~[0m
+
+  Error occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Missing expected ) at column 83 in [notesByRaceId.update(values => ({ ...values, [race.id]: $any($event.target).value }))] in D:\Projects\race-planner\race-planner\race-planner\src\app\features\races\race-list.component.html@112:23[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:113:23:
+[37m      113 │ ... (input)="[32mnotesByRaceId.update(values => ({ ...values, [race.i[37m...
+          ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Missing expected } at column 75 in [notesByRaceId.update(values => ({ ...values, [race.id]: $any($event.target).value }))] in D:\Projects\race-planner\race-planner\race-planner\src\app\features\races\race-list.component.html@112:23[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:113:23:
+[37m      113 │ ... (input)="[32mnotesByRaceId.update(values => ({ ...values, [race.i[37m...
+          ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Unexpected token ')' at column 84 in [notesByRaceId.update(values => ({ ...values, [race.id]: $any($event.target).value }))] in D:\Projects\race-planner\race-planner\race-planner\src\app\features\races\race-list.component.html@112:23[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:113:23:
+[37m      113 │ ... (input)="[32mnotesByRaceId.update(values => ({ ...values, [race.i[37m...
+          ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG5002: Parser Error: Unexpected token [, expected identifier, keyword, or string at column 46 in [notesByRaceId.update(values => ({ ...values, [race.id]: $any($event.target).value }))] in D:\Projects\race-planner\race-planner\race-planner\src\app\features\races\race-list.component.html@112:23[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:113:23:
+[37m      113 │ ... (input)="[32mnotesByRaceId.update(values => ({ ...values, [race.i[37m...
+          ╵              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'value' does not exist on type '{ "": any; }'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/races/race-list.component.html:113:99:
+[37m      113 │ ...values => ({ ...values, [race.id]: $any($event.target).[32mvalue[37m }))"
+          ╵                                                           [32m~~~~~[0m
+
+  Error occurs in the template of component RaceListComponent.
+
+    src/app/features/races/race-list.component.ts:13:15:
+[37m      13 │   templateUrl: [32m'./race-list.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m

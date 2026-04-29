@@ -29,6 +29,6 @@ describe('App', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const links = Array.from(compiled.querySelectorAll('.app-nav a')).map((link) => link.textContent);
 
-    expect(links).toEqual(['Races', 'Admin']);
+    expect(links).toEqual(['Races', 'My Calendar', 'Admin']);
   });
 });
