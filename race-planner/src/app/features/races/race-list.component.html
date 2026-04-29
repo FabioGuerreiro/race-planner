@@ -1,0 +1,95 @@
+<main class="races-page">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Trail Calendar</p>
+      <h1>Races</h1>
+    </div>
+    <p class="race-count">{{ raceCount() }} races</p>
+  </header>
+
+  <section class="race-filters" aria-label="Race filters">
+    <label>
+      <span>Date</span>
+      <select [value]="selectedDate()" (change)="selectedDate.set($any($event.target).value)">
+        <option value="">Any date</option>
+        @for (date of dateOptions(); track date.value) {
+          <option [value]="date.value">{{ date.label }}</option>
+        }
+      </select>
+    </label>
+
+    <label>
+      <span>Circuit</span>
+      <select [value]="selectedCircuit()" (change)="selectedCircuit.set($any($event.target).value)">
+        <option value="">Any circuit</option>
+        @for (circuit of circuitOptions(); track circuit.id) {
+          <option [value]="circuit.id">{{ circuit.name }}</option>
+        }
+      </select>
+    </label>
+
+    <label>
+      <span>Location</span>
+      <select [value]="selectedLocation()" (change)="selectedLocation.set($any($event.target).value)">
+        <option value="">Any location</option>
+        @for (location of locationOptions(); track location) {
+          <option [value]="location">{{ location }}</option>
+        }
+      </select>
+    </label>
+
+    <label>
+      <span>Category</span>
+      <select [value]="selectedCategory()" (change)="selectedCategory.set($any($event.target).value)">
+        <option value="">Any category</option>
+        @for (category of categoryOptions(); track category) {
+          <option [value]="category">{{ category }}</option>
+        }
+      </select>
+    </label>
+
+    <button type="button" (click)="clearFilters()" [disabled]="!hasActiveFilters()">Clear</button>
+  </section>
+
+  <section class="race-list" aria-label="All races">
+    @for (race of filteredRaces(); track race.id) {
+      <article class="race-row">
+        <time class="race-date" [attr.datetime]="race.date.toISOString()">
+          <span>{{ race.date | date: 'MMM' }}</span>
+          <strong>{{ race.date | date: 'd' }}</strong>
+        </time>
+
+        <div class="race-details">
+          <div class="race-title-line">
+            <h2>{{ race.name }}</h2>
+            <span class="status" [class]="'status status-' + race.status">{{ race.status }}</span>
+          </div>
+          <p>{{ race.location }}, {{ race.municipality }} - {{ race.district }}</p>
+          @if (race.circuits.length) {
+            <p class="organizer">{{ race.circuits[0].name }}</p>
+          }
+          <p class="organizer">{{ race.organizer }}</p>
+
+          <ul class="distance-list" [attr.aria-label]="race.name + ' distances'">
+            @for (distance of race.distances; track distance.id) {
+              <li>
+                <strong>{{ distance.distanceKm }} km</strong>
+                <span>{{ distance.name }}</span>
+                <span>{{ distance.elevationGainM }} m+</span>
+                <span>{{ distance.category }}</span>
+              </li>
+            } @empty {
+              <li class="muted">Distances to confirm</li>
+            }
+          </ul>
+        </div>
+
+        @if (race.officialUrl) {
+          <a class="race-link" [href]="race.officialUrl" target="_blank" rel="noopener">Official</a>
+        }
+      </article>
+    } @empty {
+      <p class="empty-state">No races found.</p>
+    }
+  </section>
+</main>

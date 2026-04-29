@@ -1,0 +1,26 @@
+[
+  {
+    "id": "national-trail-cup-2026",
+    "name": "National Trail Cup",
+    "type": "national",
+    "season": "2026"
+  },
+  {
+    "id": "portugal-ultra-series-2026",
+    "name": "Portugal Ultra Series",
+    "type": "national",
+    "season": "2026"
+  },
+  {
+    "id": "centro-trail-series-2026",
+    "name": "Centro Trail Series",
+    "type": "regional",
+    "season": "2026"
+  },
+  {
+    "id": "lisboa-trail-series-2026",
+    "name": "Lisboa Trail Series",
+    "type": "regional",
+    "season": "2026"
+  }
+]

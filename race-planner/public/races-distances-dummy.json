@@ -1,0 +1,208 @@
+[
+  {
+    "id": "algarve-xtreme-ultra-2026",
+    "raceId": "algarve-xtreme-trail-2026",
+    "name": "Ultra Trail",
+    "distanceKm": 55,
+    "elevationGainM": 2200,
+    "atrpCategory": "UT"
+  },
+  {
+    "id": "algarve-xtreme-trail-2026",
+    "raceId": "algarve-xtreme-trail-2026",
+    "name": "Trail Longo",
+    "distanceKm": 32,
+    "elevationGainM": 1300,
+    "atrpCategory": "TL"
+  },
+  {
+    "id": "algarve-xtreme-curto-2026",
+    "raceId": "algarve-xtreme-trail-2026",
+    "name": "Trail Curto",
+    "distanceKm": 18,
+    "elevationGainM": 700,
+    "atrpCategory": "TC"
+  },
+
+  {
+    "id": "rio-paiva-trail-2026",
+    "raceId": "trail-rio-paiva-2026",
+    "name": "Trail Longo",
+    "distanceKm": 30,
+    "elevationGainM": 1200,
+    "atrpCategory": "TL"
+  },
+  {
+    "id": "rio-paiva-curto-2026",
+    "raceId": "trail-rio-paiva-2026",
+    "name": "Trail Curto",
+    "distanceKm": 17,
+    "elevationGainM": 600,
+    "atrpCategory": "TC"
+  },
+
+  {
+    "id": "alcanena-trail-2026",
+    "raceId": "alcanena-trail-2026",
+    "name": "Trail Longo",
+    "distanceKm": 33,
+    "elevationGainM": 1100,
+    "atrpCategory": "TL"
+  },
+  {
+    "id": "alcanena-curto-2026",
+    "raceId": "alcanena-trail-2026",
+    "name": "Trail Curto",
+    "distanceKm": 18,
+    "elevationGainM": 650,
+    "atrpCategory": "TC"
+  },
+
+  {
+    "id": "monsaraz-trail-2026",
+    "raceId": "monsaraz-natur-trail-2026",
+    "name": "Trail Longo",
+    "distanceKm": 30,
+    "elevationGainM": 800,
+    "atrpCategory": "TL"
+  },
+  {
+    "id": "monsaraz-curto-2026",
+    "raceId": "monsaraz-natur-trail-2026",
+    "name": "Trail Curto",
+    "distanceKm": 15,
+    "elevationGainM": 400,
+    "atrpCategory": "TC"
+  },
+
+  {
+    "id": "marao-ultra-2026",
+    "raceId": "ultra-trail-marao-2026",
+    "name": "Ultra Trail",
+    "distanceKm": 60,
+    "elevationGainM": 3000,
+    "atrpCategory": "UT"
+  },
+  {
+    "id": "marao-trail-2026",
+    "raceId": "ultra-trail-marao-2026",
+    "name": "Trail Longo",
+    "distanceKm": 35,
+    "elevationGainM": 1800,
+    "atrpCategory": "TL"
+  },
+
+  {
+    "id": "figueira-ultra-2026",
+    "raceId": "figueira-ultra-trail-2026",
+    "name": "Ultra Trail",
+    "distanceKm": 50,
+    "elevationGainM": 2000,
+    "atrpCategory": "UT"
+  },
+  {
+    "id": "figueira-trail-2026",
+    "raceId": "figueira-ultra-trail-2026",
+    "name": "Trail Longo",
+    "distanceKm": 28,
+    "elevationGainM": 900,
+    "atrpCategory": "TL"
+  },
+
+  {
+    "id": "geira-ultra-2026",
+    "raceId": "ultra-geira-romana-2026",
+    "name": "Ultra Trail",
+    "distanceKm": 50,
+    "elevationGainM": 2400,
+    "atrpCategory": "UT"
+  },
+  {
+    "id": "geira-trail-2026",
+    "raceId": "ultra-geira-romana-2026",
+    "name": "Trail Longo",
+    "distanceKm": 30,
+    "elevationGainM": 1400,
+    "atrpCategory": "TL"
+  },
+
+  {
+    "id": "peneda-geres-ultra-2026",
+    "raceId": "trans-peneda-geres-2026",
+    "name": "Ultra Trail",
+    "distanceKm": 65,
+    "elevationGainM": 3500,
+    "atrpCategory": "UT"
+  },
+
+  {
+    "id": "gardunha-ultra-2026",
+    "raceId": "ultra-trilhos-gardunha-2026",
+    "name": "Ultra Trail",
+    "distanceKm": 55,
+    "elevationGainM": 2600,
+    "atrpCategory": "UT"
+  },
+  {
+    "id": "gardunha-trail-2026",
+    "raceId": "ultra-trilhos-gardunha-2026",
+    "name": "Trail Longo",
+    "distanceKm": 30,
+    "elevationGainM": 1400,
+    "atrpCategory": "TL"
+  },
+
+  {
+    "id": "zebra-trail-2026",
+    "raceId": "zebra-ultra-trail-2026",
+    "name": "Trail Longo",
+    "distanceKm": 28,
+    "elevationGainM": 900,
+    "atrpCategory": "TL"
+  },
+
+  {
+    "id": "lobo-iberico-trail-2026",
+    "raceId": "lobo-iberico-trail-2026",
+    "name": "Trail Longo",
+    "distanceKm": 25,
+    "elevationGainM": 800,
+    "atrpCategory": "TL"
+  },
+
+  {
+    "id": "douro-ultra-2026",
+    "raceId": "douro-ultra-trail-2026",
+    "name": "Ultra Trail",
+    "distanceKm": 45,
+    "elevationGainM": 2000,
+    "atrpCategory": "UT"
+  },
+
+  {
+    "id": "utax-ultra-2026",
+    "raceId": "utax-axtrail-2026",
+    "name": "Ultra Trail",
+    "distanceKm": 50,
+    "elevationGainM": 2300,
+    "atrpCategory": "UT"
+  },
+
+  {
+    "id": "fatima-trail-2026",
+    "raceId": "trail-fatima-2026",
+    "name": "Trail Longo",
+    "distanceKm": 30,
+    "elevationGainM": 700,
+    "atrpCategory": "TL"
+  },
+
+  {
+    "id": "lizandro-night-2026",
+    "raceId": "trail-demonios-lizandro-2026",
+    "name": "Trail Curto (Noturno)",
+    "distanceKm": 15,
+    "elevationGainM": 500,
+    "atrpCategory": "TC"
+  }
+]

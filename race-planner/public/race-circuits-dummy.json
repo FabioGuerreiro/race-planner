@@ -1,0 +1,32 @@
+[
+  {
+    "raceId": "trail-rio-paiva-2026",
+    "circuitId": "national-trail-cup-2026",
+    "season": "2026"
+  },
+  {
+    "raceId": "alcanena-trail-2026",
+    "circuitId": "national-trail-cup-2026",
+    "season": "2026"
+  },
+  {
+    "raceId": "ultra-trail-marao-2026",
+    "circuitId": "portugal-ultra-series-2026",
+    "season": "2026"
+  },
+  {
+    "raceId": "figueira-ultra-trail-2026",
+    "circuitId": "centro-trail-series-2026",
+    "season": "2026"
+  },
+  {
+    "raceId": "lobo-iberico-trail-2026",
+    "circuitId": "lisboa-trail-series-2026",
+    "season": "2026"
+  },
+  {
+    "raceId": "trail-demonios-lizandro-2026",
+    "circuitId": "lisboa-trail-series-2026",
+    "season": "2026"
+  }
+]

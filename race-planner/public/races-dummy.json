@@ -1,0 +1,153 @@
+[
+  {
+    "id": "algarve-xtreme-trail-2026",
+    "name": "Algarve Xtreme Trail",
+    "date": "2026-01-25T07:00:00",
+    "location": "Querença",
+    "district": "Faro",
+    "municipality": "Loulé",
+    "organizer": "AA Algarve",
+    "officialUrl": "https://www.crono.aaalgarve.org/eventos/algarve-xtreme-trail-2026",
+    "status": "confirmed"
+  },
+  {
+    "id": "trail-rio-paiva-2026",
+    "name": "Trail do Rio Paiva",
+    "date": "2026-03-15T09:00:00",
+    "location": "Castelo de Paiva",
+    "district": "Aveiro",
+    "municipality": "Castelo de Paiva",
+    "organizer": "ATRP",
+    "status": "confirmed"
+  },
+  {
+    "id": "alcanena-trail-2026",
+    "name": "Alcanena Trail",
+    "date": "2026-03-22T09:00:00",
+    "location": "Alcanena",
+    "district": "Santarém",
+    "municipality": "Alcanena",
+    "organizer": "ATRP",
+    "status": "confirmed"
+  },
+  {
+    "id": "monsaraz-natur-trail-2026",
+    "name": "Sharish Monsaraz Natur Trail",
+    "date": "2026-03-27T09:00:00",
+    "location": "Monsaraz",
+    "district": "Évora",
+    "municipality": "Reguengos de Monsaraz",
+    "organizer": "Sharish Gin / Local Org",
+    "status": "confirmed"
+  },
+  {
+    "id": "ultra-trail-marao-2026",
+    "name": "Ultra Trail do Marão",
+    "date": "2026-03-27T06:00:00",
+    "location": "Amarante",
+    "district": "Porto",
+    "municipality": "Amarante",
+    "organizer": "UTM Organization",
+    "status": "confirmed"
+  },
+  {
+    "id": "figueira-ultra-trail-2026",
+    "name": "Figueira Ultra Trail",
+    "date": "2026-04-04T07:00:00",
+    "location": "Figueira da Foz",
+    "district": "Coimbra",
+    "municipality": "Figueira da Foz",
+    "organizer": "FUT Organization",
+    "status": "confirmed"
+  },
+  {
+    "id": "ultra-geira-romana-2026",
+    "name": "Ultra Geira Romana",
+    "date": "2026-04-26T07:00:00",
+    "location": "Terras de Bouro",
+    "district": "Braga",
+    "municipality": "Terras de Bouro",
+    "organizer": "UGR Organization",
+    "status": "confirmed"
+  },
+  {
+    "id": "trans-peneda-geres-2026",
+    "name": "Trans Peneda-Gerês",
+    "date": "2026-05-02T06:00:00",
+    "location": "Montalegre",
+    "district": "Vila Real",
+    "municipality": "Montalegre",
+    "organizer": "TPG Organization",
+    "status": "confirmed"
+  },
+  {
+    "id": "ultra-trilhos-gardunha-2026",
+    "name": "Ultra Trilhos da Gardunha",
+    "date": "2026-05-02T07:00:00",
+    "location": "Fundão",
+    "district": "Castelo Branco",
+    "municipality": "Fundão",
+    "organizer": "UTG Organization",
+    "status": "confirmed"
+  },
+  {
+    "id": "zebra-ultra-trail-2026",
+    "name": "Zebra Ultra Trail",
+    "date": "2026-05-03T09:00:00",
+    "location": "Cantanhede",
+    "district": "Coimbra",
+    "municipality": "Cantanhede",
+    "organizer": "Local Organization",
+    "status": "announced"
+  },
+  {
+    "id": "lobo-iberico-trail-2026",
+    "name": "Lobo Ibérico Trail",
+    "date": "2026-05-03T09:00:00",
+    "location": "Malveira",
+    "district": "Lisboa",
+    "municipality": "Mafra",
+    "organizer": "Local Organization",
+    "status": "announced"
+  },
+  {
+    "id": "douro-ultra-trail-2026",
+    "name": "Douro Ultra Trail",
+    "date": "2026-10-10T07:00:00",
+    "location": "Peso da Régua",
+    "district": "Vila Real",
+    "municipality": "Peso da Régua",
+    "organizer": "DUT Organization",
+    "status": "announced"
+  },
+  {
+    "id": "utax-axtrail-2026",
+    "name": "UTAX AXTrail",
+    "date": "2026-10-17T07:00:00",
+    "location": "Castanheira de Pera",
+    "district": "Leiria",
+    "municipality": "Castanheira de Pera",
+    "organizer": "AXTrail Organization",
+    "status": "announced"
+  },
+  {
+    "id": "trail-fatima-2026",
+    "name": "Trail de Fátima",
+    "date": "2026-10-24T09:00:00",
+    "location": "Fátima",
+    "district": "Santarém",
+    "municipality": "Ourém",
+    "organizer": "Local Organization",
+    "status": "announced"
+  },
+  {
+    "id": "trail-demonios-lizandro-2026",
+    "name": "Trail Demónios do Lizandro",
+    "date": "2026-11-06T20:00:00",
+    "location": "Sintra",
+    "district": "Lisboa",
+    "municipality": "Sintra",
+    "organizer": "Local Organization",
+    "status": "announced"
+  }
+]
